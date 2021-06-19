@@ -135,11 +135,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
+
 # STATIC_ROOT= os.path.join(BASE_DIR, 'static')
-=======
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
->>>>>>> 17af029ca85abbbddbd3fecb4e61f1b01dcab187
+
 
 # Added By Syed M. Arfa for password reset fn
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
