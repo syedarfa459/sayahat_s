@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+{%load static%}
+{% load socialaccount %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'styles/main_styles.css'%}"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+
+     <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- satisfy font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'styles/style.css'%}">
+    <link rel="stylesheet" href="{% static 'styles/aboutstyle.css'%}">
+
+
+    <!-- swiper cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- animation on scroll -->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+<script>
+    setTimeout(function () {
+      if ($("#msg").length > 0) {
+        $("#msg").remove();
+      }
+    }, 5000);
+</script>
+
+<style>
+.rating-wrapper {
+  display: inline-block;
+}
+.rating-wrapper * {
+  float: right;
+}
+/* input {
+  display: none;
+} */
+label {
+  font-size: 30px;
+}
+
+input:checked ~ label {
+  color: red;
+}
+.alert {
+width: 100%;
+}
+#top-alert {
+
+position: fixed;
+margin-top: 100px;
+z-index: 99999;
+}
+#mylink {
+text-decoration: none;
+}
+.alert.alert-server {
+margin-bottom: 0;
+border-radius: 0;
+}
+.map-container{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+.map-container iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
+
+
+
+
+</style>
+<title>Sayahat Pakistan</title>
+
+</head>
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{%url 'locapp:dest'%}"><img src="{% static 'images/logo2.png' %}"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%url 'locapp:dest'%}">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'club:index'%}">Sayahat Adventure clubs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'locapp:aboutUs'%}">About Us</a>
+          </li>
+
+            {%if request.user.is_authenticated%}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Post
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="nav-link" href="{%url 'locapp:addRating'%}">Place Rating</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="nav-link" href="{%url 'locapp:addCity'%}">Post a new city</a></li>
+              <li><a class="nav-link" href="{%url 'locapp:addPlace'%}">Post a place within city</a></li>
+              
+              
+            </ul>
+          </li>
+        <li class="nav-item">
+        <li class="nav-item" id="show_dp"><a href="/" class="text-danger nav-link example_e" ><span class="nav_link_font">{{user.first_name}}</span></a></li>
+          <a class="nav-link image" ><img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="..." height=30px width=30px class="img-fluid rounded-circle"></a>
+
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{%url 'locapp:logout'%}">Log out</a>
+          </li>
+            {%else%}
+            <li class="nav-item">
+            <a class="nav-link text-danger" href="{% provider_login_url "google" %}">Login Via Google</a>
+          </li>
+            {%endif%}
+
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <a href="#footer"><button class="btn">Contact Us</button></a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if messages %}
+  <div class="alert alert-info alert-server" id="msg" role="alert">
+    <div class="text-center">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {% for message in messages %}
+        
+        {{ message }}
+        
+        {% endfor %}
+      </div>
+  </div>
+  {% endif %}
+
+  <!-- {% if messages %}
+<div id="ms">
+    <div id="top-alert" class="alert alert-info" role="alert">
+      <div class="text-center">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {% for message in messages %}
+        
+        {{ message }}
+        
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endif %} -->
+  
+
+   <body>
+        {% block body %}
+        {% endblock body %}
+{%include 'locapp/newfooter.html'%}
+
+    <script src="{%static 'plugins/parallax-js-master/parallax.min.js'%}"></script>
+
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- <script>
+  var mySwiper = new Swiper('#banner .swiper-container',{
+    //Original Parameters
+    loop:true,
+    autoplay:true
+  })
+</script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script>
+  var mySwiper = new Swiper('#showcase .swiper-container',{
+    //Original Parameters
+    loop:true,
+    slidesPerView:3,
+    spaceBetween:30
+  })
+</script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>

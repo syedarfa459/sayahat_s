@@ -1,0 +1,52 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'styles/newstyle.css' %}">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-row">
+            <div class="footer-col">
+             
+                <ul>
+                    <li><img src="{% static 'images/logo2.png' %}" style="margin-top: 50px;"></li>
+                     
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sayahat Info</h4>
+                <ul>
+                 
+                    <li><a href="{% url 'club:index' %}">Sayahat Adventure Clubs</a></li>
+                    <li><a href="{% url 'locapp:Blog' 1 %}">Popular Blogs</a></li>
+                    <li><a href="{% url 'locapp:aboutUs' %}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact & Suggestions</h4>
+                <ul>
+                    
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=sayahatpk@gmail.com"> sayahatpk@gmail.com</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=arfashahji@gmail.com"> arfashahji@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow on Social Media</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/arfashahji/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone={{+923321516238}}"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/syed_arfa459/"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div style="text-align: center; margin-top: 18px;">
+        <span style="font-size: 12px;color: #4e4d4d;">&copy; Copyright 2021 Sayahat Official</span>
+    </div> -->
+    </div>
+</footer>
+</body>

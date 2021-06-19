@@ -1,0 +1,60 @@
+{% extends 'locapp/base.html' %}
+{%load crispy_forms_tags%}
+{%block body%}
+
+<div class="myJumbotron container-fluid d-flex justify-content-center bg-white shadow" data-aos="fade-down-right" style="width: 650px;">
+    <form
+        method="POST"
+        class="col-lg-8 "
+        enctype="multipart/form-data"
+    >
+        <h1 class="d-flex justify-content-center" style="color:#f66342;">Add Place within City</h1>
+
+        {%csrf_token%}
+        <!-- {{form|crispy}} -->
+        <div class="mt-5">
+            <div class="mb-2">City:</div>
+            {{form.meta_destination}}
+        </div>
+        <div class="mt-5">
+            <div class="mb-2">Place Name:</div>
+            {{form.meta_destination_name}}
+        </div>
+        <div class="mt-5">
+            <div class="mb-2">Place Image:</div>
+            {{form.meta_destination_Image}}
+        </div>
+        <div class="mt-5">
+            <div class="mb-2">Add Short Description:</div>
+            {{form.meta_destination_desc}}
+        </div>
+        <div class="mt-5">
+            <div class="mb-2">Add Extra Info:</div>
+            {{form.destination_extras}}
+        </div>
+        <div class="mb-2 mt-5">Rate Place:</div>
+        <div class="text-center">
+        <div class="rating-wrapper text-center">
+            <input type="radio" id="r1" name="rating" style="display: none;" value="5">
+            <label for="r1">&#10038;</label>
+            <input type="radio" id="r2" name="rating" style="display: none;" value="4">
+            <label for="r2">&#10038;</label>
+            <input type="radio" id="r3" name="rating" style="display: none;" value="3">
+            <label for="r3">&#10038;</label>
+            <input type="radio" id="r4" name="rating" style="display: none;" value="2">
+            <label for="r4">&#10038;</label>
+            <input type="radio" id="r5" name="rating" style="display: none;" value="1">
+            <label for="r5">&#10038;</label>
+        </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="hero-btn red-btn mt-4" value="Submit">
+        </div>
+        <div class="text-center" style="margin-top:30px;">
+            No City? Add City Details First <a  href="{% url 'locapp:addCity' %} ">Click Here! </a>
+        </div>
+    </form>
+    
+</div>
+{% endblock body%}

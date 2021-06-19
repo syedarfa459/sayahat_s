@@ -1,0 +1,40 @@
+{% extends 'AdventureClubs/base.html' %}
+
+{% block body_block %}
+<div class="mt-5"></div>
+<section class="latest-posts" style="margin-top:100px;">
+		<div class="row">
+				<div class="col text-center">
+					<div class="section_title">
+                        <h1 class="d-flex justify-content-center text-uppercase" style="margin-bottom: 50px">Welcome  <span class="text-success">" {{request.user}} "</span> Your Registered clubs</h1>
+					</div>
+				</div>
+			</div>
+      <div class="container" data-aos="fade-up">
+        <div class="row d-flex justify-content-center" style="padding:20px 20px 20px 20px;">
+      {%for fc in clubs%}
+			<div class="col-sm-4 py-3 py-sm-0">
+              <div class="card shadow">
+                  <div class="inner">
+                      <a href="{%url 'club:detail' pk=fc.id %}"><img src="{{fc.club_image.url}}"  class="card-img-top" href="#" alt="..."></a>
+                  </div>
+
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{fc.club_name}}</h5>
+
+					  <a class="btn btn-outline-danger" href="{%url 'club:deleteClub' pk=fc.id %}">Delete</a>
+					  <a class="btn btn-outline-success" href="{%url 'club:updateClub' pk=fc.id %}">Edit</a>
+
+                  </div>
+              </div>
+          </div>
+{%empty%}
+            <h1 class="d-flex justify-content-center">You don't have any Registered club</h1>
+
+
+      {%endfor%}
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

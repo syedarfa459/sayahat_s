@@ -1,0 +1,30 @@
+{% extends 'AdventureClubs/base.html' %}
+{% block body_block %}
+{%load static%}
+<section>
+	<div class="myJumbotron bg-white shadow d-flex justify-content-center  container">
+		<div class=" row ">
+            <div class=" col-6">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="text-left">
+                        <h1 class="text-uppercase font-weight-bold">{{fe.title}}</h1>
+                        <p class=" font-weight-bold">Club name: {{fe.event_by}}</p>
+                        <p >Contact: {{fe.event_by.contact}}</p>
+                        <p >Club address: {{fe.event_by.club_address}}</p>
+                        <p class="text-success">Event Starting date: {{fe.event_start_date}}</p>
+						<p class="text-danger">Event End date: {{fe.event_end_date}}</p>
+						<p >Event Starting Point: {{fe.start_point}}</p>
+						<p >Destination: {{fe.destination}}</p>
+                        <a href="https://api.whatsapp.com/send?phone={{fe.event_by.contact}}"  class="hero-btn red-btn" style="margin-top:12px;">Book on Whatsapp</a>
+
+                    </div>
+                </div>
+            </div>
+		<div class="col-6">
+			<img src="{{fe.image.url}}" class="img-fluid" style="height:400px;width:700px;">
+		</div>
+			</div>
+		</div>
+</section>
+
+{% endblock %}

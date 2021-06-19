@@ -1,0 +1,39 @@
+{% extends 'AdventureClubs/base.html' %}
+
+{% block body_block %}
+	<!-- Featured Clubs -->
+    <section class="latest-posts" id="featured" style="margin-top:40px;">
+		<div class="container">
+		  <div class="title">
+			<h4 class="title-primary">Perfect Trip</h4>
+			<h1 class="h1 h1-responsive title-secondary">On going Events</h1>
+		  </div>
+		<div class="row mt-5">
+      <div class="container" data-aos="fade-down">
+        <div class="row d-flex justify-content-center" style="padding:20px 20px 20px 20px;">
+      {%for fe in event%}
+			<div data-aos="flip-down" class="col-sm-4 py-3 py-sm-0" >
+              <div class="card shadow" >
+                  <div class="inner">
+                      <a href="{%url 'club:detail' pk=fe.id %}"><img  style="height:300px;width:400px" src="{{fe.image.url}}"   class="img-fluid card-img-top" href="#" alt="..."></a>
+                  </div>
+
+                  <div class="card-body text-center">
+                    <h5 class="card-title mt-3" style="color:#f66342;margin-top:15px">{{fe.club_name}}</h5>
+                    <p class="text-muted mt-3">Related Club : {{fe.event_by}}</p>
+                    <p class="text-muted mt-3 h6"><b>Overview : {{fe.overview}}</b></p>
+                    <p class="text-muted mt-3">Registration Opens : <i class="text-success">{{fe.event_start_date}}</i></p>
+                    <p class="text-muted mt-3">Registration Closes: <i class="text-danger">{{fe.event_end_date}}</i></p>
+                    <a href="https://api.whatsapp.com/send?phone={{fe.event_by.contact}}"><button class="mt-2 mb-2 hero-btn red-btn"> Book using Whatsapp</button></a>
+
+                  </div>
+              </div>
+          </div>
+      {%endfor%}
+        </div>
+      </div>
+	  <div class="mt-5"></div>
+    </section>
+
+
+{% endblock %}

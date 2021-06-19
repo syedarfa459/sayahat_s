@@ -1,0 +1,393 @@
+{% extends 'AdventureClubs/base.html' %}
+{%load static%}
+{% block body_block %}
+<head>
+	<style type="text/css" rel="stylesheet">
+
+.inner{
+    overflow:hidden;
+
+
+}
+.inner img{
+    transition: all 0.5s ease;
+
+}
+.inner:hover img{
+    transform: scale(1.07);
+}
+h1{
+		color:#f66342;
+
+}
+
+
+  /* for animations at text and images */
+
+.single-content{
+    position:relative;
+    transition:.3s;
+
+
+}
+
+.single-content:after{
+    content:'';
+    display:block;
+    background:rgba(0, 0, 0, 0.8);
+    top:40px;
+    bottom:40px;
+    opacity:0;
+    transform:rotate3d(-1,1,0,100deg);
+    transition: .4s;
+
+}
+.single-content:hover:after{
+    opacity:.9;
+    transform: rotate3d(0,0,0,0deg);
+
+
+}
+.single-content img{
+    width:100%;
+    height: auto;
+}
+
+.text-content{
+    top:50%;
+    opacity:0;
+    z-index:1;
+    transform:translate(10%,-30%);
+    transition: .3s;
+    text-align:center;
+    color:#fff;
+
+
+}
+.text-content h4{
+    font-family: Georgia;
+    font-weight: 700;
+
+
+}
+.single-content:hover .text-content{
+    opacity:1;
+    transform:translate(0,-50%);
+    transition-delay: .3s;
+
+}
+.shape{
+    width:100%;
+    height: 400px;
+    background:linear-gradient(to bottom, #D63773, #ED528D 70%);
+    position: absolute;
+    clip-path: ellipse(150px 150px at 10% 5%);
+    -webkit-clip-path: ellipse(150px 150px at 10% 5%);
+}
+
+#myc{
+	color:#33bbf9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.myrow {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.mycolumn {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .mycolumn {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .mycontainer {
+    display:none
+  }
+}
+	</style>
+	<script  type="text/javascript">
+
+  AOS.init({
+  duration: 1200,
+})
+
+</script>
+</head>
+{% if messages %}
+<div id="msg" style="height: 58px;">
+	<!-- {% if messages %} -->
+	<div id="top-alert" class="alert alert-info" role="alert">
+	  <div class="text-center">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		{% for message in messages %}
+		<!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert"> -->
+		{{ message }}
+		<!-- </div> -->
+		{% endfor %}
+	  </div>
+	</div>
+	<!-- {% endif %} -->
+  </div>
+{% endif %}
+ 
+<section id="banner">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			
+			<div class="swiper-slide">
+				<img src="{% static 'images/banner_1.jpg' %}">
+				<div class="caption">
+					<div class="container"> 
+						<h2>Relax & Enjoy</h2>
+						<h1 class="">It's time to adventure</h1>
+						<span><i class="fas fa-play"></i>Take a Tour</span>
+						<div class="search-header py-5">  
+							<div class="form-box">
+								<form action="{%url 'club:searchResults'%}" class="home_search_form" id="home_search_form">
+							  
+								<input type="text" class="search-field location" style="height: 43px;" name="city" placeholder="Type a city">
+								
+								<input type="submit" class="search-btn" type="button" style="height: 40px;" value="Search">
+				
+								</form>
+							</div>
+						</div>
+					</div>  
+				</div>
+			</div>
+			
+		
+		</div>
+	</div>
+</section> 
+
+
+
+	<!-- Intro -->
+
+	<div class="intro py-1">
+		<!-- <div class="intro_background" style="background-image:url(images/intro.png)"></div> -->
+		<div class="intro_background"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col" data-aos="flip-left">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/ico5.png' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title" style="color:#f66342">Top Destinations</div>
+										<div class="intro_subtitle"><p>Visit Sayahat Solo to get info about top rated cities/places.</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col" data-aos="flip-left">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/ico4.png' %}"  alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title" style="color:#f66342">The Best Clubs</div>
+										<div class="intro_subtitle"><p>Now you can register with Sayahat Adventure Club to help people know your tour info.</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col" data-aos="flip-left">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/ico3.png' %}"  alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title" style="color:#f66342">Amazing Services</div>
+										<div class="intro_subtitle"><p>We provide the ultimate information that you need.</p></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <section id="featured">
+    <div class="container" data-aos="fade-right">
+      <div class="title">
+        <h4 class="title-primary">Perfect Holiday</h4>
+        <h1 class="h1 h1-responsive title-secondary">Adventure Clubs</h1>
+      </div>
+      <div class="row px-0 py-5 d-flex justify-content-center">
+      {%for fc in FC%}
+        <div class="col-lg-3 px-2 my-3">
+          <div class="card-design">
+            <div class="image">
+              <img src="{{fc.club_image.url}}" alt="">
+            </div>
+            <div class="card-text shadow">
+              <div class="item">
+                <h4 class="h4">{{fc.club_name}}</h4>
+              </div>
+              <div class="item">
+                <a href="{%url 'club:detail' pk=fc.id %}"><button class="btn">View</button></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+
+<div class="container jumbotron mycontainer bg-white shadow" style="margin-top:30px;">
+<h1 class="d-flex justify-content-center text-uppercase" style="margin-bottom: 50px; padding-top: 40px;">Explore the unmatched beauty</h1>
+<div class="myrow">
+  <div class="mycolumn">
+
+    <div class="inner"><img  src="{%static 'images/g1.jpg' %}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g2.jpg' %}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g3.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g4.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g5.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g6.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g7.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g10.jpg'%}" style="width:100%"></div>
+
+
+  </div>
+  <div class="mycolumn">
+   <div class="inner"><img src="{%static 'images/g20.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g21.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g22.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g8.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g9.jpg'%}" style="width:100%"></div>
+
+  </div>
+  <div class="mycolumn">
+    <div class="inner"><img src="{%static 'images/g17.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g18.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g19.jpg'%}" style="width:100%"></div>
+   <div class="inner"><img src="{%static 'images/bg1.png'%}" style="width:100%"></div>
+   <div class="inner"> <img src="{%static 'images/bg.png'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/bg3.png'%}" style="width:100%"></div>
+
+  </div>
+  <div class="mycolumn">
+    <div class="inner"><img src="{%static 'images/g11.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g12.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g13.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g14.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g15.jpg'%}" style="width:100%"></div>
+    <div class="inner"><img src="{%static 'images/g16.jpg'%}" style="width:100%"></div>
+
+  </div>
+</div>
+</div>
+<!--featured events-->
+<section id="featured">
+<div class="container mt-5">
+		  <div class="title">
+			<h4 class="title-primary">Marvellous places</h4>
+			<h1 class="h1 h1-responsive title-secondary">Upcomming Events</h1>
+		  </div>
+	<div class="news mt-5" id="news">
+		<div class="container" data-aos="fade-left">
+			<div class="row">
+				<div class="col-xl-8">
+					<div class="news_container">
+
+						<!-- News Post -->
+			{%for fe in FE%}
+						<!-- News Post -->
+						<div data-aos="fade-right" class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{{fe.image.url}}" style="height:220px;width:300px" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div style="color:#bcc550">{{fe.event_start_date}}</div>
+								</div>
+								<div class="news_post_title"><a href="{%url 'club:eventDetails'  pk=fe.id %} " style="color:#f66342">{{fe.title}}</a></div>
+								<div class="news_post_category">
+									<ul style="padding-top:10px;">
+										<li ><a style=" color:#bcc550;" href="#">{{fe.event_end_date}}</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>{{fe.overview}}</p>
+								</div>
+								<div>
+									<a href="https://api.whatsapp.com/send?phone={{fe.event_by.contact}}"  class="hero-btn red-btn" style="margin-top:12px;">Book on Whatsapp</a>
+								</div>
+							</div>
+						</div>
+			{%endfor%}
+
+					</div>
+				</div>
+
+				<!-- News Sidebar -->
+				<div class="col-xl-4" style="background-image:url({%static 'images/bg1.png'%});background-size:cover">
+					<div class="travello">
+						<div class="background_image" ></div>
+						<div class="travello_content">
+							<div class="travello_content_inner">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="travello_container">
+							<a >
+								<div class="d-flex flex-column align-items-center justify-content-end">
+									<span class="travello_title">Sayahat</span>
+									<span class="travello_subtitle">Your Dream locations at your click</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+
+
+{% endblock %}

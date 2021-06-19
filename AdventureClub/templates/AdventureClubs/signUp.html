@@ -1,0 +1,61 @@
+{% extends 'AdventureClubs/base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div id="msg">
+  {% if messages %}
+  <div id="top-alert" class="alert alert-info" role="alert">
+    <div class="text-center">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      {% for message in messages %}
+      <!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert"> -->
+      {{ message }}
+      <!-- </div> -->
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="myJumbotron container-fluid d-flex justify-content-center bg-white shadow" data-aos="fade-down-right" style="width: 650px;">
+  <form method="POST"
+    enctype="multipart/form-data"
+    class=" col-lg-8"
+  >
+    <h2 class="text-dark text-center" ><span style="color:#f66342;">Sign Up</span></h2>
+    {% csrf_token %}
+    <!-- {{form|crispy}} -->
+      <div class="mt-5">
+        <div class="mb-2">Username:</div>
+        {{form.username}}
+      </div>
+      <div class="mt-5">
+        <div class="mb-2">First Name:</div>
+        {{form.first_name}}
+      </div>
+      <div class="mt-5">
+        <div class="mb-2">Last Name:</div>
+        {{form.last_name}}
+      </div>
+      <div class="mt-5">
+        <div class="mb-2">Email:</div>
+        {{form.email}}
+      </div>
+      <div class="mt-5">
+        <div class="mb-2">Password:</div>
+        {{form.password1}}
+      </div>
+      <div class="mt-5">
+        <div class="mb-2">Confirm Password:</div>
+        {{form.password2}}
+      </div>
+      <div class="d-flex justify-content-center">
+        <input type="submit" class="hero-btn red-btn mt-5" value="Submit">
+      </div>
+     <!-- <div class="text-center" style="margin-top:50px;">
+      
+    <button class="btn btn-lgxx text-white" type="submit" style="background-color:#33bbf9;border-radius: 10px;">Sign up</button>
+     </div> -->
+  </form>
+</div>
+<div class="mt-5"></div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'locapp/base.html' %}
+{% block body %}
+{% load static %}
+
+{% for detail in dest_details %}
+
+
+<div class="container mb-2">
+  <div class="row px-2">
+    <div class="col-md-7">
+      <div class="map-wrapper">
+        {{map|safe}}   
+        
+      </div>
+    </div>
+    <div class="col-md-5 px-0">
+      <!-- <div style="background:linear-gradient(rgba(4,9,30,.1),rgba(4,9,30,.5)),url({{detail.destinationImage.url}});background-size:cover;height: 375px;width: 500px;">
+                
+        <div class="text-box ">
+            <h1 class=" py-3">{{detail.destination_name}}</h1>
+            <a target="_blank" href="https://www.google.com/maps/dir/{{tourist_lat}},{{tourist_lon}}/{{dest_lat}},{{dest_lon}}/" class="hero-btn">GET DIRECTIONS</a>
+          </div>
+</div> -->
+    <section class="pt-2">
+      <h1 class="text-center heading-orange">{{detail.destination_name}}</h1>
+      <p class="py-3">{{detail.destination_desc}}</p>
+      <h2 class="text-center heading-orange">Minimum distance from your location {{distance |floatformat:2}} km</h2>
+    </section>
+    </div>
+    
+  </div>
+</div>
+
+<!-- for content distance, etc. -->
+<div class="container mt-5" style="width:90%">
+  <div class="text-box" style="margin-top: 62px;">
+  <div class="row">
+    <div class="col-md-12">
+  <a href="https://www.google.com/maps/dir/{{tourist_lat}},{{tourist_lon}}/{{dest_lat}},{{dest_lon}}/" style="width: 320px;margin-right: 20px;" class="hero-btn red-btn">DIRECTIONS</a>
+<!-- </div>
+<div class="col-md-6" style="padding-left: 0px;"> -->
+<a href="https://www.gettyimages.com/photos/{{detail.destination_name}}" style="width: 320px;" class="hero-btn red-btn">PICTURES</a>
+</div>
+</div>
+</div>
+</div>
+
+
+ 
+</div>
+{%endfor%}
+
+
+{% if dest_meta_details %}
+<section id="featured">
+    <div class="container mb-5 mt-2" data-aos="fade-left">
+      <div class="title py-2">
+        <h4 class="title-primary">Explore New Places</h4>
+        <h1 class="h1 h1-responsive title-secondary">Nearby Destinations</h1>
+        <br>
+      </div>
+      <div class="row px-0 d-flex justify-content-center">
+      {%for detail in dest_meta_details%}
+        <div class="col-lg-3 px-1">
+          <div class="card-design">
+            <div class="image">
+              <img src="{{detail.meta_destination_Image.url}}" alt="">
+            </div>
+            <div class="card-text shadow">
+              <div class="item">
+                <span><i class="fas fa-star"></i>({{detail.place_rating}})</span>
+                <h4 class="h4">{{detail.meta_destination_name}}</h4>
+              </div>
+              <div class="px-1">
+              
+                <a class="item" href="{%url 'locapp:loc_meta_detail' pk=detail.id %}"><button style="width: 110px;" class="btn">View Info</button></a>
+                <div class="py-2">
+                <a class="item"  href="{%url 'locapp:addRating' %}"><button style="width:110px"  class="btn">Rate</button></a>
+              </div>
+            </div>
+            
+
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+
+
+    </div>
+
+  </section>
+  {%else%}
+  <div style="margin-bottom: 130px;"></div>
+{%endif%}
+
+{% endblock body %}
+

@@ -1,0 +1,49 @@
+{% extends 'locapp/base.html' %}
+{% block body %}
+{% for detail in dest_meta_details %}
+<div class="container">
+  <div class="row px-2">
+    <div class="col-md-7">
+      <div class="map-wrapper">
+        {{map|safe}}   
+        
+      </div>
+    </div>
+    <div class="col-md-5 px-0">
+      <!-- <div style="background:linear-gradient(rgba(4,9,30,.1),rgba(4,9,30,.5)),url({{detail.destinationImage.url}});background-size:cover;height: 375px;width: 500px;">
+                
+        <div class="text-box ">
+            <h1 class=" py-3">{{detail.destination_name}}</h1>
+            <a target="_blank" href="https://www.google.com/maps/dir/{{tourist_lat}},{{tourist_lon}}/{{dest_lat}},{{dest_lon}}/" class="hero-btn">GET DIRECTIONS</a>
+          </div>
+</div> -->
+    <section class="pt-2">
+      <h1 class="text-center heading-orange">{{detail.meta_destination_name}}</h1>
+      <p>{{detail.meta_destination_desc}}</p>
+      <h3 style="color: #e74c3c;">Extra Facilities</h3>
+      <p>{{detail.destination_extras}}</p>
+      <h2 class="text-center heading-orange py-2">Minimum distance from your location {{distance |floatformat:2}} km</h2>
+    </section>
+    </div>
+    
+  </div>
+
+  <div class="container mt-5 mb-5" style="width:90%">
+    <div class="text-box" style="margin-top: 62px;">
+    <!-- <a href="https://www.google.com/maps/dir/{{tourist_lat}},{{tourist_lon}}/{{dest_lat}},{{dest_lon}}/" class="hero-btn red-btn">GET DIRECTIONS</a> -->
+    <a href="https://www.google.com/maps/dir/{{tourist_lat}},{{tourist_lon}}/{{dest_lat}},{{dest_lon}}/" style="width: 320px;margin-right: 20px;" class="hero-btn red-btn">DIRECTIONS</a>
+    <a href="https://www.gettyimages.com/photos/{{detail.meta_destination_name}}" style="width: 320px;" class="hero-btn red-btn">PICTURES</a>
+  
+  </div>
+  
+    
+  
+
+  </div>
+</div>
+
+
+
+  
+{% endfor %}
+{% endblock body %}

@@ -1,0 +1,25 @@
+{% extends 'locapp/base.html' %}
+{% block body %}
+
+<div class="myJumbotron container-fluid d-flex justify-content-center bg-white shadow mb-5" data-aos="fade-right" style="width:60%;margin-top: 110px;">
+    {% for detail in dest_meta_details %}
+    <section class="pt-2">
+        <h2 class="heading text-center" style="color:#bcc550"> {{detail.meta_destination_name}} , {{detail.meta_destination}}</h2>
+        <h3 class="px-3 heading-orange" style="text-align: left;margin: 1em 0 0.5em 0;
+          font-weight: normal;
+          font-family: 'Ultra', sans-serif;   
+          text-transform: uppercase;
+          text-shadow: 0 2px white, 0 3px #777;">About</h3>
+        <p class="px-3 py-4 h4" style="text-align:justify"><em>{{detail.meta_destination_desc}}</em>
+        </p>
+        <h3 class="px-3 py-1 heading-orange" style="text-align: left;margin: 1em 0 0.5em 0;
+          font-weight: normal;
+          font-family: 'Ultra', sans-serif;   
+          text-transform: uppercase;
+          text-shadow: 0 2px white, 0 3px #777;">Extra&nbsp;&nbsp;Availables</h3>
+        <p class="px-3 py-4 h4" style="text-align:justify"><em>{{detail.destination_extras}}</em>
+        </p>
+    </section>
+    {% endfor %}
+</div>
+{% endblock %}

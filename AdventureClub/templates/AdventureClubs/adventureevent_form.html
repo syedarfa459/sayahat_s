@@ -1,0 +1,79 @@
+{% extends 'AdventureClubs/base.html' %} {% load crispy_forms_tags %} {% block
+{% block body_block %}
+<div id="msg">
+  {% if messages %}
+  <div id="top-alert" class="alert alert-info" role="alert">
+    <div class="text-center">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>{{request.user}}</strong>
+      {% for message in messages %}
+      <!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert"> -->
+      {{ message }}
+      <!-- </div> -->
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+<div
+  class="myJumbotron container-fluid bg-white shadow d-flex  justify-content-center" data-aos="fade-down-right" style="width: 650px;">
+  {% if clubs %}
+  <form
+    name="image"
+    method="POST"
+    enctype="multipart/form-data"
+    class="col-lg-8"
+  >
+    <h2 class="text-dark text-center" ><span style="color:#f66342;">Create your Adventure Events here</span></h2>
+    {%csrf_token%}
+    <h4 class="text-dark mt-5 text-center mb-5"><span style="color:#bcc550">Choose Your Club</span></h4>
+
+    {%for c in clubs%}
+    <div class="mt-4">
+    <input type="radio" name="club" value="{{c}}" />
+    <label for="{{c}}">{{c}}</label><br />
+    </div>
+    {%endfor%}
+     <!-- {{form|crispy}} -->
+     <div class="mt-5">
+      <div class="mb-2">Event Title:</div>
+      {{form.title}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Brief Overview:</div>
+      {{form.overview}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Add Event Image:</div>
+      {{form.image}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Event Start Date:</div>
+      {{form.event_start_date}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Event End Date:</div>
+      {{form.event_end_date}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Pickup Point:</div>
+      {{form.start_point}}
+    </div>
+    <div class="mt-5">
+      <div class="mb-2">Destination Point:</div>
+      {{form.destination}}
+    </div>
+    <div class="d-flex justify-content-center">
+      <input type="submit" class="hero-btn red-btn mt-5" value="Submit">
+    </div>
+    <!-- <div class="text-center mt-5">
+      <input  class="btn btn-lg text-white" type="submit" style="background-color:#33bbf9; border-radius: 10px;" type="submit" value="Create Event" />
+    </div> -->
+  </form>
+  {% else %}
+  <br />
+  <h3 class="text-center mt-3">Register your club first, <a href="{% url 'club:register' %}"> Click Here!</a></h3>
+  {% endif %}
+</div>
+<div class="mt-4"></div>
+{% endblock %}

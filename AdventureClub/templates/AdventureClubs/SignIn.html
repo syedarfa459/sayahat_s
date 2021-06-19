@@ -1,0 +1,63 @@
+{% extends 'AdventureClubs/base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+
+<div id="msg">
+    {% if messages %}
+    <div id="top-alert" class="alert alert-info" role="alert">
+      <div class="text-center">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {% for message in messages %}
+        <!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert"> -->
+        {{ message }}
+        <!-- </div> -->
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <input value="Username:" type="text" name="username">-->
+<!--    <input value="Password:" type="password" name="password">-->
+<!--    <input value="Submit" type="submit">-->
+<!--    </form>-->
+         <div class=" myJumbotron container jumbotron bg-white shadow d-flex justify-content-center" data-aos="fade-down-right">
+        <form
+            method="post"
+            class="col-lg-8"
+        >
+            {% csrf_token %}
+<!--            {% if form.non_field_errors %}-->
+<!--            {% for error in form.non_field_errors %}-->
+<!--                <h4>{{error}}</h4>-->
+<!--            {% endfor %}-->
+<!--            {% endif %}-->
+            <!-- {{form|crispy}} -->
+            <div class="mt-5">
+                <div class="mb-2">Username:</div>
+                {{form.username}}
+            </div>
+            <div class="mt-5">
+                <div class="mb-2">Password:</div>
+                {{form.password}}
+            </div>
+            <div class="d-flex justify-content-center">
+              <input type="submit" class="hero-btn red-btn mt-5" value="Submit">
+            </div>
+            <!-- <div class="text-center">
+                <input type="submit"  class="btn text-white" style="margin-top:40px;background-color:#33bbf9;border-radius: 10px;" value="Submit">
+            </div> -->
+             <div class="text-center" style="margin-top:30px;">
+                 <a  href="{% url 'password_reset' %} "> Reset your password?</a> OR
+            <a  href="{% url 'club:signUp' %} "> Create new account here</a>
+            </div>
+
+            {% if msg %}
+            <p class="alert alert-danger mt-3 text-center">{{msg}}</p>
+            {% endif %}
+
+        </form>
+         </div>
+{% endblock %}

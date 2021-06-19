@@ -1,0 +1,62 @@
+{% extends 'AdventureClubs/base.html' %}
+ <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+{% block body_block %}
+<div id="msg">
+  {% if messages %}
+  <div id="top-alert" class="alert alert-info" role="alert">
+    <div class="text-center">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>{{request.user}}</strong>
+      {% for message in messages %}
+      <!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert"> -->
+      {{ message }}
+      <!-- </div> -->
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% if clubs %}
+<h2 class="d-flex justify-content-center text-uppercase" style="margin-top: 90px;">Welcome  <span class="text-success" style="margin-left: 10px; margin-right: 10px;"> "{{request.user}}"</span> Your Registered clubs</h2>
+  <section id="featured">
+    <div class="container" data-aos="fade-down">
+
+      <div class="row px-0 py-2 mb-5 d-flex justify-content-center">
+      {%for fc in clubs%}
+        <div class="col-lg-3 px-2 my-3">
+          <div class="card-design">
+            <div class="image">
+              <img src="{{fc.club_image.url}}" alt="">
+            </div>
+            <div class="card-text shadow">
+              <div class="item">
+                
+                <h4 class="h4">{{fc.club_name}}</h4>
+              </div>
+              <div class="item mt-5 d-flex justify-content-around">
+                    <a class="btn btn-outline-danger" href="{%url 'club:deleteClub' pk=fc.id %}">Delete</a>
+					  <a class="btn btn-outline-danger" style="margin-left: 10px;" href="{%url 'club:updateClub' pk=fc.id %}">Edit</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+          {%empty%}
+        
+        {%endfor%}
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <div class="myJumbotron container-fluid bg-white shadow d-flex  justify-content-center">
+  <h3 class="d-flex justify-content-center">You don't have any Registered club, <a href="{% url 'club:register' %}"> Click here to register club!</a></h3>  
+  </div>
+{% endif %}
+{% endblock %}

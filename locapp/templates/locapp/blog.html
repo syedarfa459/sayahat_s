@@ -1,0 +1,492 @@
+{% extends 'locapp/base.html' %} {%load static%}
+{%block body%}
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins&family=Roboto&display=swap');
+
+/* root styling */
+
+:root{
+    --light : #f8f9fa;
+    --secondary: #adb5bd;
+    --dark: #343a40;
+    --color-primary:#e74c3c;
+    --color-secondary:#0a6245;
+    --border : #e9ecef;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none!important;
+}
+a:hover{
+    color: var(--secondary)!important;
+}
+
+* > *{
+    box-sizing: border-box;
+}
+
+/* global styling */
+.text-light{
+    color: var(--light);
+}
+
+.textsecondary{
+    color: var(--secondary);
+}
+
+.text-dark{
+    color: var(--dark)!important;
+}
+
+.textprimary{
+    color: var(--color-primary);
+}
+
+.bg-light{
+    background-color: var(--light);
+}
+
+
+
+.img-fluid{
+    width: 100%;
+}
+.text-bold{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+
+}
+
+.text-title{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.secondary-title{
+    font-family: 'Poppins' , sans-serif;
+}
+.displays-0{
+    font-size:40px;
+}
+
+.displays-1{
+    font-size: 22px;
+}
+
+.displays-2{
+    font-size: 16px;
+}
+
+.displays-3{
+    font-size: 14px;
+}
+
+
+.containerz{
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+
+.text-right{
+    text-align: right;
+}
+
+.butn{
+    padding: 15px 20px!important;
+    border: none!important;
+}
+
+.btn-primary{
+    border-radius: 4px!important;
+    background-color: var(--color-primary)!important;
+}
+
+.object-fit{
+    max-height: 120px;
+    height: 80px;
+    width: 80px;
+    object-fit: fill;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+
+
+.thumbnail{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.round_img{
+    height: 120px;
+    width: 120px;
+    object-fit: fill;
+    border-radius: 99px;
+}
+
+
+
+
+/* ----------- Main Section ---------- */
+
+#site-main{
+    margin-top: 2em;
+}
+
+
+/* Media Query */
+
+.rowz{
+    display: flex;
+}
+
+
+@media (max-width : 1024px){
+    .rowz{
+       flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width : 992px){
+
+    #site-main{
+        margin-top: 14em;
+    }
+}
+
+
+
+@media (max-width : 574px){
+
+
+    #site-main{
+        margin-top: 6em;
+    }
+
+}
+
+    </style>
+</head>
+
+        {%if key is 1%}
+
+    <!-- Main Site -->
+    <main id="site-main">
+
+        <!-- Post Content -->
+            <section class="containerz">
+                <article id="post">
+                    <!-- article heading -->
+                    <div class=" text-center">
+                        <div class="title">
+                            <h2 class="text-bold text-dark displays-0 py-2">THINGS TO KNOW BEFORE VISITING PAKISTAN</h2>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- thumbnail  -->
+                    <div class="thumbnail mt-5">
+                        <img src="{%static 'images/blog1.jpg'%}" class="thumbnail" alt="">
+                    </div>
+
+                    <!-- content -->
+                            <div class="content text-dark displays-2 secondary-title mt-5">
+                            <p>Pakistan is an incredible location for tourists with its breathtaking scenery and hospitable people.
+                            Take a quick look at these valuable tips before visiting Pakistan. Whether you’re travelling to Pakistan for the mountains in the north, sea to the south, the historical sites dating back to the Indus Valley Civilization or the stunning Mughal architecture, some preparation beforehand will certainly make your trip more memorable.
+
+                            </p>
+                            <p>
+                            <b>Pakistan Basics:</b>
+                            Pakistan is officially “The Islamic Republic of Pakistan.” Founded on the 14th of August 1947  by Muhammad Ali Jinnah
+                            Although Pakistan is a young country, its history is ancient. Ruins of one of the oldest civilizations in the world, the Indus Valley Civilization, lie in southern Pakistan. Multiple conquerors and civilizations took hold in parts of modern-day Pakistan, including Alexander the Great, the Delhi Sultanate, the Mughal Empire, and the British Raj.
+                            Its army has strengthened throughout the years as a result; it’s now a nuclear power and has the sixth-largest standing armed forces in the world.
+
+                            </p>
+                            <p>
+                            <b>Pakistani Language:</b>
+                            Urdu is national language of Pakistan. Most middle and upper-class Pakistanis know (some) English. It’s rare to find a place where absolutely no one speaks English. However, it’s always good to know a phrase or two in Urdu before you visit Pakistan.
+                            Besides the two official languages, there are many local languages: Pashto, Balochi, Sindhi, Punjabi, Wakhi, Potohari, Shina, Burushaski… the list goes on! Every province has its own regional language. In major cities people mostly speak Urdu, but in towns and villages local languages are spoken.
+                            Some Urdu Phrases:
+                            • Salamu laikum: Hello
+                            • Walaikum salam: Hello (in response)
+                            • Shukrya: Thank you
+                            • Kya hal hai?: How are you?
+                            • Mai theek hoon: I am fine.
+                            • Ap ka naam kya hai?: What is your name?
+                            • Mera naam Henry hai: My name is Henry.
+                            • Kitnay paisay?: How much?
+                            • Ji/haan: Yes/yeah
+                            • Nahi: No
+                            • Jao: Go away
+                            • Nahi chahiye: I don’t need it
+                            • Angrezi ati?: Do you know English?
+
+                            </p>
+                            <p>
+                            <b> Hospitality of Pakistani People:</b>
+                            Pakistanis are some of the most hospitable people in the world and will try their level best to welcome foreigners and put them at ease. In Pakistan, guests are a present from God, and lots of people are honored to treat them intrinsically . You will be hosted by different families. After your refusal, they're going to insist once more , over and over. They will also insist carrying your bag and offering you food hundred times even if you say that you are full. These are their cultural rules and you're the guest. If you are hosted by a family for a meal, or a day try not to feel overwhelmed if you see them prioritising your comfort before their own.
+                            Even during the month of Ramadan once they are fasting, they're going to not fail to supply you a number of the simplest dishes.
+                            They would become your guide and invest their time to point out you the cities and villages with not expecting any quite favour reciprocally . They would gift you anything just to form you cheerful and to point out their hospitality.
+                            The people of this country are its greatest asset. They are the people that are the simplest to interact with.
+                            Religion in Pakistan:
+                            Pakistan being an Islamic Republic, almost all the people are Muslim, with scattered Christian and Hindu communities. Islam is that the official state religion, the highest of state possesses to be a Muslim, and people’s religion is stated on their identity cards.
+                            The state religion is central to lifestyle in Pakistan; mosques are located in almost every neighbourhood and therefore the call to prayer heard throughout urban areas five times each day. In the last census, 96.4% of Pakistanis identified as Muslim. While not of these people may practice Islam on a daily basis, the religion’s moral beliefs and tenets are widely recognised and revered .
+                            Because Pakistan is an Islamic Republic, its laws are supported shariah . It has a number of the foremost draconian blasphemy laws within the world. Foreigners won’t be held to an equivalent standards as locals, but you ought to always be respectful of Islam, the Prophet Muhammad (PBUH), and non secular culture.
+
+                            <p>    <b>Dress to wear in Pakistan:</b>
+                            Men:
+                            Pants or trousers with any shirt will be sufficient for men for daily wear. You can wear t-shirts formal shirts with no one batting an eye. As for shorts, you can wear those too, but you won’t see many locals wearing them and people usually doesn’t like wearing shorts, the major factor is modesty. Men wearing tank tops are very rare here, so it’s best to avoid those.
+                            Shalwar kameez is their national dress so most of the people will be seen wearing them and if you wear these you will be given more respect and protocol by locals so it’s the best to wear shalwar kameez.
+                            Women:
+                            For women, it is highly recommended to wear modesty as Pakistan is an Islamic state. Dresses that cover whole body like long pants and loose shirts Although headscarves aren’t mandatory, it pays to have one on you for entering mosques.
+                            The local pant/shirt combination, shalwar kameez, is immensely comfortable and colorful. You can pick them up in bazaars and malls throughout Pakistan—locals will appreciate it!
+                            Food in Pakistan:
+                            Pakistani food is delicious and diverse. It involves many oil, meat, and bread—prepare to gain the pounds.
+                            Food in Pakistan is filled with flavors and spices, but rarely too spicy apart from those with zero spice tolerance.
+                            Many cities have their own food culture and specialties. Lahore and Karachi compete for the title of the simplest foodie city in Pakistan. In major cities, more and more cafes and restaurants try international flavors. Quality still varies widely; generally , it’s best to stay to local food.
+                            Some famous Pakistani dishes include:
+                            • Karahi: Meat stir-fried in a large pan
+                            • Roti: Thin round bread
+                            • Naan: Thicker round bread
+                            • Biryani: Spiced rice with meat
+                            • Pulao: Rice cooked with fat or oil, usually containing carrots, raisins, and meat
+                            • Chapli kebab: The best kebab,somewhat like a burger patty… but 10x better. The best chapli kebab is found in Khyber Pakhtunkhwa (KPK) province.
+                            • Dal: Lentils
+                            • Channa: Chickpeas
+                            </p>
+                            <p>  <b>Internet and Calling in Pakistan:</b>
+                            Overall, Zong and Telenor are used by travellers in cities and rural areas. In northern Gilgit Baltistan, Zong and Telenor add some areas, but it’s a far better idea to shop for an SCOM SIM card instead. You can buy them at customer service centers in hubs like Gilgit, Aliabad, and Karimabad.
+                            Getting a SIM card are often an annoying process. Foreigners cannot buy SIM cards at any outlet—you need to attend a politician “customer service center” of the mobile provider to urge one. You must fill out a registration form to shop for a SIM, so bring copies of your passport.
+                            It usually takes 4-12 hours for your card to activate (24 for SCOM). Your SIM card will expire when your visa expires.
+                            Internet works reasonably well throughout the country except in some rare areas like Gilgat Baltistan. In the Northern Areas, the connectivity is awful or non-existent counting on where you go.
+
+
+
+                            </p>
+                            </div>
+
+                </article>
+
+                    <div class="mt-5 meta d-flex justify-content-center">
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-user textprimary"></i> Ayesha Hameed
+                            </a>
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-clock textprimary"></i>  Clock Wed 02, 2021
+                            </a>
+
+                        </div>
+                <div class="mt-5"></div>
+
+   </main>
+{%endif%}
+        {%if key is 2%}
+       <!-- Main Site -->
+    <main id="site-main">
+
+        <!-- Post Content -->
+            <section class="containerz">
+                <article id="post">
+                    <!-- article heading -->
+                    <div class=" text-center">
+                        <div class="title">
+                            <h2 class="text-bold text-dark displays-0 py-2">MUST VISIT PLACES IN PAKISTAN</h2>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- thumbnail  -->
+                    <div class="thumbnail mt-5">
+                        <img src="{%static 'images/blog2.jpg'%}" class="thumbnail" alt="">
+                    </div>
+
+                    <!-- content -->
+                            <div class="content text-dark displays-2 secondary-title mt-5">
+                            <p>
+                            Pakistan is a country with true natural beauty, home to some of the fantastic mountain peaks, lush green landscapes, rivers for adventurous and archaeological sites for the truly curious and untouched beaches for people seeking escape from crowds. In a country where there are so many options to choose from, here are some of the best places to visit:
+                            </p>
+                            <p>
+                            <b>Skardu:</b>
+                            Skardu, having everything turquoise waters, towering mountains, beautiful lakes, and generous people. Try to spend a day or two exploring the beautiful Kachhura Village, Shangri-la Resort, and the sand dunes in Katpana village.
+                            Do enjoy an incredible experience watching the sunrise and sunset over the Indus River. To know that area’s history, visit the 600 years old Kharpocho Fort.
+                            Shopping and dining in Skardu Bazaar is a must thing. Here you’ll find some of the fantastic local gifts for your friends and family back home.
+                            If you are fond of trekking, you can’t help trekking through the glaciers to the basecamps of some of the world’s highest mountains, including K2.
+                            Your vacation wouldn’t be considered complete without a visit to the surreal Deosai National Park and Satpara Lake.
+
+                            </p>
+                            <p>
+                            <b>Islamabad:</b>
+                            The romantic city Islamabad, the capital of Pakistan, is an excellent place for relaxation and sightseeing. The city of silence. The city is having greenery all over, with beautiful roads and highways and a clean, calm, and serene environment.
+                            You will really enjoy exploring the moderately populated city. Cultural heritage sites like Pakistan Monument, Lok Virsa Museum, and Faisal Mosque are the famous spots. Or you can simply hit the hiking trails in the densely forested Margalla Hills and then drive to Monal at the top. You will get magnificent views of Islamabad and the surrounding areas from top. It is a perfect spot to capture pictures.
+                            Islamabad has endless options for foodie. Whether you want to munch some continental or Chinese cuisine, or try Pakistani, American, English, or Italian cookery, Islamabad’s restaurants have them all.
+                            Most visitors can not help falling in love with the beautiful Lake View Park and Shakarparian, and the small but exquisite Saidpur Village.
+                            Some of the best shopping places in Islamabad include Centaurus Mall and Safa Gold Mall.
+
+                            </p>
+                            <p>
+                            <b> Peshawar:</b>
+                            Peshawar is situated to the northwest of Islamabad, Peshawar is a beautiful city with a history dating back to the 17th century Mughal Empire. This city is famous among tourists for its historical places, shopping bazaars, and food and most welcoming people.
+                            Simply stroll the crowded streets and markets of Peshawar and try the famous Charsi Tikka for lunch in Namak Mandi. If you’re fond of lamb meat then don’t miss the traditional Dum pukht dish of Peshawar.
+                            Peshawar has preserved its medieval charm beautifully. The Bala Hisar Fort and its fortifications still seem to be watching the movements along the famous GT Road. It was built in 1562 and this fort was a regal abode of the Afghan Durrani dynasty.
+                            Other historical places of Peshawar includes Buddhist Stupas, Peshawar Museum, Khyber Pass, and Jamrud Fort.
+                            When it comes to shopping, you can buy many luxurious items at Peshawar but you will have to spend some time in bargaining to get an amazing disount. A famous place for Afghan carpets in Shuba Chowk, gemstones in Namak Mandi, and Peshawari Chappals in Jehangir Pura Market (Jahangirpura Bazaar), this city has it all. A visit to the historic Qissa Khwani Bazaar is also a must thing for shopping enthusiasts.
+
+                            <p>    <b>Khewra Salt Mine:</b>
+                            The world’s second largest salt mine trip may not be a regular bucket list feature in conventional vacations plans, but it is also definitely a great educational experience. The Khewra Salt Mine is situated in the Salt Range (in the province of Punjab), and is almost 184 kilometres away from Islamabad, the capital city of Pakistan. Not only is it the country’s vital source of salt, but the site is also a major tourist attraction, with up to 250,000 visitors driving up to the mine each year. Once transported inside the mine via carts, tourists can witness caves made entirely of shiny salt, a number of saltwater pools, and some miniature salt structures of important landmarks of the country. The salt reserves are said to be discovered by the troops of Alexander the Great in 326 BCE.
+                            The beautiful view of salt mine definitely is a great source of attraction for the tourists.
+
+                            </p>
+                            <p>  <b>Makran Coast</b>
+                            Pakistan has yet some time to turn its beaches into dream holiday resorts, but if exploring an unspoiled coastline with all natural beaches is your thing, then the Makran Coast is definitely worth visiting. The breathtaking landscape present in the province of Balochistan is a pleasant surprise in what is otherwise rugged terrain comprising mostly of barren mountains.
+                            The coast itself is a 1,000-kilometre stretch along the Gulf of Oman and is interspersed with intact beaches that are accessible via the 650-kilometre long Makran Coastal Highway, which starts from Karachi in Sindh, passes the towns of Ormara and Pasni, and ends in Gwadar. It is advised to begin your journey from Karachi at the crack of dawn so you can make the most of the long drive. Notable beaches on the coastal strip include Ormara Beach, Sonmiani Beach, Kund Malir Beach, Astola Island, Gwadar Beach and Pasni Beach.
+
+
+                            </p>
+                            <p>  <b>Gojal Valley</b>
+                            Heading 20 km to the north of Hunza on the Karakoram Highway, and you’ll find yourself in the beautiful Gojal Valley. Bordering China’s Xinjiang province, Gojal is home of beautiful lakes, glaciers,  rugged mountains, and scenic villages.
+                            After driving towards north through some mountain tunnels, you’ll arrive at the famous Attabad Lake in Shishkat village. Among the rocky mountains, there is this lake present that was formed after a portion of the nearby mountain fell off, blocking the river flow. Known for its blue waters, this lake is an excellent place for taking pictures, capturing mesmerizing views, jet skiing, and boating.
+                            Next comes the picturesque Gulmit village along the Karakoram Highway. Walk on the highway to forget all your worries or go around exploring the lush green, pleasent village. An hour’s hike will take you to the old Ondra settlement from where you can get bird’s eye views of the surrounding villages and the famous Passu Cones.
+                            Other tourist spots include Borith Lake, Ghulkin Glacier, Hussaini Suspension Bridge, Batura Glacier, and Khunjerab National Park.
+
+                            </p>
+                            <p>  <b>Naltar Valley, Gilgit</b>
+                            Around 1 hour and 40 minutes drive on the Karakoram Highway from Gilgit city comes Naltar Valley. This is a remote valley known for its absolute beauty and serene atmosphere. The snow-capped peaks, landscapes, lakes, and expansive forests make Naltar worth visiting.
+                            During the winter, Naltar Valley turns into a skiing destination. The Pakistan Air Force manages the ski resort which attracts thousands of skiers from across the globe each year.
+                            The magnificent Bashri Lakes offer dazzling lakeside sceneries, natural dirt trails, and glacial streams. It is a lovely spot for picnicking. A jeep ride will take you to Pari Lake, an alpine lake where you can enjoy boating and dawdle around to explore the area.
+
+                            </p>
+                            <p>  <b>Lahore</b>
+                            The old city of Lahore is known for variety of tourist spots and activities, such as historical sites, shopping places, and foods. For foodies, Lahore has endless options to explore taste of Pakistan, but at the famous Food Street on MM Alam Road, you’ll get to taste all the famous cuisines in one place.
+                            Lahore Fort is a must-visit for people interested in history, art, and architecture. The legendary Mahmud of Ghazni has built the fort in the 11th century. A visit to Badshahi Mosque is yet another similar treat for tourists. If you are a shopaholic, head over to the famous Anarkali Bazaar and Liberty Market of Lahore.
+                            Other places to visit in Lahore include Shalimar Gardens, Lahore Museum, Minar e Pakistan, and of course the patriotic views at Wagah border.
+
+                            </p>
+
+                            </div>
+
+                </article>
+
+                    <div class="mt-5 meta d-flex justify-content-center">
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-user textprimary"></i> M. Wajih ur Rehman
+                            </a>
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-clock textprimary"></i>  Clock Thu 03, 2021
+                            </a>
+
+                        </div>
+                <div class="mt-5"></div>
+
+   </main>
+{%endif%}
+        {%if key is 3%}
+    <main id="site-main">
+
+        <!-- Post Content -->
+            <section class="containerz">
+                <article id="post">
+                    <!-- article heading -->
+                    <div class=" text-center">
+                        <div class="title">
+                            <h2 class="text-bold text-dark displays-0 py-2">THINGS TO KNOW ABOUT PAKISTANI CULTURE</h2>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- thumbnail  -->
+                    <div class="thumbnail mt-5">
+                        <img src="{%static 'images/blog3.jpg'%}" class="thumbnail" alt="">
+                    </div>
+
+                    <!-- content -->
+                        <div class="content text-dark displays-2 secondary-title mt-5">
+                        <p>
+                        Pakistan is the home of different cultures. Punjabi, Sindhi, Kashmiri, Balochi, Pashtun and a lot of other groups, combine to enhance the diversity of cultures that exist in Pakistan.
+                        </p>
+                        <p>
+                        <b>Diverse Pakistani Culture</b>
+                        Pakistan’s culture is a melting pot of cultures including Indian, Afghan, Central Asian Persian, South Asian and Western Asian influences. There are almost above 15 major ethnic groups in Pakistan, which differ in physical features, historical bloodlines, customs, dressing, food and music. Some of these include Punjabis, Sindhis, Balochis, Pashtuns, Kashmiris, Hazaras, Makranis and Baltis.
+                        Other than the ancient cultural elements, the religious influence of Islam has also strongly shaped Pakistani culture since it first came to this region in AD 700.
+
+                        </p>
+                        <p>
+                        <b>Diversity in Languages:</b>
+                        Urdu is the national language in Pakistan spoken almost everywhere.
+                        The official number of languages that are actively being spoken in Pakistan are between 73 and 76. This means that within hours as you travel between the country’s different districts, there is difference of language.
+                        The most popular languages, however, belong to the largest cultural groups with their own modern and ancient literature. Most languages in Pakistan belong to the Indo-Iranian language group, also including Urdu, the national language.
+
+                        </p>
+                        <p>
+                        <b> Strong Family Bonds:</b>
+                        One of the most beautiful thing about Pakistan is their strong family bonds and relationships with family members which cannot be seen so commonly in western countries.
+                        Pakistan society is based on collectivism rather than individualism that’s why they pay great importance to their family and relations. Family and other relationship stand always strong and comes first in Pakistan due to it’s religious, cultural, economic and societal values.
+
+                        <p>    <b>Pakistani culture has excellent craftsmanship:</b>
+                        Another great thing about Pakistani Culture is that they have beautiful craftsmanship.  Pakistani truck art is the world-famous example of craftsmanship for other countries because of its obscure designs and pop culture references but in reality, there is a lot more than just truck art. Pakistani Craftsmanship includes a plethora of styles, calligraphy, aesthetics, and materials. Arabic calligraphy can be found on many building, houses, buses, walls, cars and on posters. There are pretty Sindhi, Pashtun and Balochi jewelry sold in shops that are handmade by the women of those areas.
+                        Pottery, especially blue pottery, typical of Sindh and Multan, is loved all over the world for its beautiful look. Naqashi, or the art-making of camel-skin lamps, is another example of local craft there, along with colourful tiles work, which is a Mughal legacy.
+
+                        </p>
+                        <p>  <b>Hospitality is a part of culture:</b>
+                        Literature is an important aspect of Pakistani culture. Most of the poets reflect Islamic code and deliver the message of love and brotherhood. A similarity of thought among poets and writers of all regions of Pakistan is an important factor of their cultural life.
+                        Sufi poets occupy an honored place. Sufis like Bulle Shah, Lal Shahbaz, Data Ganj Baksh, Shah Abdul Lateef, Sachal Sarmast, Hazrat Sultan Bahu and Waris Shah rendered meritorious services for the spread of Islam in the subcontinent.
+
+                        </p>
+                        <p>  <b>Pakistani Sports:</b>
+                        Games like cricket, wrestling, hockey, football, squash etc are popular in every part of the country. These games reflect our cultural identity.
+                        But the most famous one is cricket, that is being liked by every Pakistani. It may have been a sport that was introduced to Pakistan by the British, but today, the country has not only made it its own but has also upraised one of the world’s best cricket teams. Other sports are also widely played and appreciated. Polo has a special place in northern Pakistan too, with one of the highest polo grounds in the world situated there.
+
+                        </p>
+                        <p>  <b>Passionate Nation</b>
+                        Pakistanis are  passionate, emotional, expressive and colorful people  just like their culture. Whatever they love, they do with plenty of enthusiasm and excitement. They love to celebrate, no matter the occasion, and entertaining, giving presents, throwing parties and having regular large gatherings with friends and family are all very common.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                    <div class="mt-5 meta d-flex justify-content-center">
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-user textprimary"></i> S. Muhammad Arfa
+                            </a>
+                            <a href="#" class="link displays-2 textsecondary px-1">
+                                <i class="fas fa-clock textprimary"></i>  Clock Fri 04, 2021
+                            </a>
+
+                        </div>
+                <div class="mt-5"></div>
+
+   </main>
+{%endif%}
+{% endblock body%}

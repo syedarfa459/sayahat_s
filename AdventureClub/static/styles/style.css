@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+.myJumbotron{
+  margin-top: 70px;
+  margin-bottom:70px;
+  padding-top:70px;padding-bottom:70px;
+  width:800px;
+  border-radius:15px;
+}
+
+/* Variables */
+:root{
+    --color-primary:#e74c3c;
+    --color-secondary:#0a6245;
+    --font:'Poppins',sans-serif;
+    --font-secondary:'Satisfy',cursive;
+    --color-white:#ffffff;
+}
+
+/* custom classes */
+.bg-primary{
+    background-color:var(--color-primary);
+}
+.bg-secondary{
+    background-color:var(--color-secondary);
+}
+.color-primary{
+    color:var(--color-primary);
+    
+}
+.color-secondary{
+    
+    color:var(--color-secondary);
+}
+
+
+
+html, body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin:0;
+    box-sizing:border-box;
+    top: 0;
+    left: 0;
+}
+ul{
+    list-style-type: none;
+}
+
+.navbar{
+    background-color: rgb(245, 244, 244);;
+    padding: 1rem 1rem;
+    
+    min-height:12vh;
+}
+.navbar-toggler{
+    background:#e74c3c;
+    border:none;
+    padding:10px 6px;
+    outline:none;
+}
+.navbar-toggler span{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: #fff;
+
+}
+.navbar-toggler span + span{
+    margin-top: 4px;
+    width: 18px;
+    margin-left: 4px;
+}
+.navbar-toggler span + span + span {
+    
+    width: 10px;
+    margin-left: 10px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding: 1rem 1.2rem;
+    position: relative;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+    border-top: 4px solid #e74c3c;
+    color:#0a6245;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:active{
+    padding: 2rem 1.2rem;
+    color:#e74c3c;
+}
+
+.navbar-nav button{
+    padding: 1.2rem 0;
+}
+
+.navbar-nav .btn{
+    background-color:#e74c3c;
+    color:white;
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+    
+    margin-top: -10px;
+}
+.navbar-nav .btn:hover{
+    background-color:#0a6245;
+ 
+} 
+
+
+
+
+/* video bg */
+
+header {
+    position: relative;
+    background-color: rgb(158, 146, 146);
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  header .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+
+
+
+
+/* featured places */
+  #featured{
+      width:100%;
+      padding:50px 0;
+  }
+  #featured .title{
+      text-align:center;
+  }
+  #featured .title .title-primary{
+      color:#e74c3c;
+      font-family:var(--font-secondary);
+      position:relative;
+  }
+  #featured .title .title-primary:before{
+    content:'featured';
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:120px;
+    color:black;
+    opacity:0.1;
+    z-index:-1;
+}
+#featured .title .title-secondary{
+    font-weight:700;
+}
+
+#featured .card-design{
+    width:100%;
+}
+
+#featured .card-design .image{  
+    position:relative;
+    width:100%;
+    height:320px;
+    z-index:-1;
+
+
+}
+
+#featured .card-design .image img{  
+    position:absolute;
+    top:0;
+    left:0;  
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+#featured .card-design .card-text{
+    background-color:white!important;
+    width:95%;
+    margin: auto;
+    margin-top:-10px;
+    padding:20px; 
+    display:flex;
+    justify-content:space-between;
+    z-index:9;
+
+}
+#featured .card-design .card-text .item{
+    align-self:center;
+}
+#featured .card-design .card-text .item span{
+    font-size:0.8em;
+}
+#featured .card-design .card-text span i.fas{
+    color:var(--color-primary);
+    margin-right:5px;
+}
+#featured .card-design .card-text .item .btn{
+    margin:0;
+    padding:5px 15px;
+    /* display: inline-block; */
+    color:var(--color-primary);
+    background:#dfa39c9d;
+    border-radius: 0;
+    
+}
+
+/* Showcase Section */
+#showcase{
+    width:100%;
+    padding:50px 0;
+    background-color:#eeeeee;
+    position:relative;
+    z-index:1;
+}
+#showcase:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:400px;
+    background:url(../images/why.jpg);
+    background-size:cover;
+    z-index:-1;
+    
+}
+#showcase .title{
+    z-index:4;
+    text-align:center;
+}
+#showcase .title .title-primary{
+    color:#e74c3c;
+    font-family:var(--font-secondary);
+    position:relative;
+}
+#showcase .title .title-primary:before{
+  content:'Showcase';
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translate(-50%,-40%);
+  font-size:120px;
+  color:#ffffff;
+  opacity:0.1;
+  z-index:-1;
+}
+#showcase .title .title-secondary{
+  font-weight:700;
+  color:#ffffff;
+}
+#showcase .swiper-container{
+    width:100%;
+    height:400px;
+    z-index:99;
+    
+}
+#showcase .swiper-container .swiper-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+  
+  @media (pointer: coarse) and (hover: none) {
+    header {
+      background: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80') black no-repeat center center scroll;
+    }
+    header video {
+      display: none;
+    }
+  }
+
+
+  .hero-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor:pointer;
+}
+.hero-btn:hover{
+    border: 1px solid #e74c3c;
+    background:#e74c3c;
+    transition: 0.5s;
+}
+.red-btn{
+   border: 1px solid #e74c3c;
+   background: transparent;
+   color:#e74c3c;
+
+}
+.red-btn:hover{
+   color:#fff;
+   background-color: #e74c3c;
+}

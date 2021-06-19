@@ -1,0 +1,152 @@
+{% extends 'locapp/base.html' %} {%load static%}
+{% block body %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts Poppins & Satsfy-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    
+
+
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{%static 'style/aboutstyle.css'%}">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>About Us</title>
+  </head>
+
+    <section class="sub-header" style="background:linear-gradient(rgba(4,9,30,.7),rgba(4,9,30,.7)),url({%static 'images/about.jpg'%});background-size:100% 100%;">
+        <div class="text-box">
+          <h1 class="title-primary text-center text-light py-5">Get to Know about Us</h1>
+          
+          <p class="text-center text-light ">All about Sayahat</p>
+        </div>
+        
+    </section>
+    
+
+    <section style="width: 70%; margin:auto;padding-top: 40px">
+        <p style="font-size: 17px;line-height: 40px;">
+          Sayahat came from an Urdu word meaning Tourism so basically this is a tourism website that helps both local and international tourists find and explore beautiful and far-flung areas of Pakistan and to find new destinations.
+          The main aim of Sayahat is to promote tourism in Pakistan and boost the economy of Pakistan by helping tourists all over the globe to explore the magnificent beauty of Pakistan. 
+          In Pakistan, there are several activities which can be a great source of rapture for globetrotters like paragliding, rock climbing, mountain climbing, skiing, trekking/hiking, mountain biking, hot air ballooning, rafting and much more.
+          Sayahat is divided into two main halves one is related to adventure clubs and the other one is for solo tourists.
+        </p>
+    </section>
+    
+    <section class="about-us mt-3">
+        <div class="row">
+            <div class="about-col">
+                <h1>Adventure Clubs</h1>
+                <p style="font-size: 17px;line-height: 40px;">
+                  If a tourist wants to join a community and travel with a clique of enthusiasts to delve into the marvelous beauty of Pakistan, he can join any event that is being held by the adventure clubs of Pakistan.
+                  This will not only provide a pool of eager adventure partners, but it will be the impetus for new beginnings and new friendships, as well as some great adventure stories.
+                  On the other hand, the adventure club owners can register their clubs and post the events that are going to start soon.
+                  <!-- Sayahat Adventure Club allows people who own adventure clubs to
+                  <br><br>
+                  1. Register their Adventure Club
+                  <br><br>
+                  2. Create an Adventure Event for a tour
+                  <br><br>
+                  3. And much much more, Try it! -->
+  
+                </p>
+                <a href="{%url 'club:index'%}" class="hero-btn red-btn">EXPLORE NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="{%static 'images/about_adv.jpg'%}">
+            </div>
+        </div>
+        <div class="row reverse">
+          <div class="about-col">
+              
+              <img src="{%static 'images/about_solo.jpg'%}">
+              
+          </div>
+          <div class="about-col mt-2">
+            <h1>Solo Tourism</h1>
+            <p style="font-size: 17px;line-height: 40px;">
+              For a person who wants to travel alone or with his family members and friends, Sayahat provides amenity to him too. He can search for any of his desired spot and get complete data of that location along with downright guide to get there using shortest possible path. He can get the exact total distance from his current location to the searched destination. Further, he can get to know about the availability of the nearest hotels, restaurants, refilling pump stations etc.
+              In this way exploring Pakistan becomes far easy than it was ever before.
+               
+          </p>
+          <a href="{%url 'locapp:dest'%}" class="hero-btn red-btn">EXPLORE NOW</a>
+          </div>
+      </div>
+    </section>
+    <section class="parallax-header" style="background:linear-gradient(rgba(4,9,30,.1),rgba(4,9,30,.5)),url({%static 'images/bg4.png'%});background-size:100% 100%;">
+        <div class="text-box">
+          <h1 class="text-center py-5">Dive into the Beauty of Pakistan</h1>
+          
+          <a href="{%url 'locapp:dest'%}" class="text-center text-light">Let's Go <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+    </section>
+
+    
+
+
+    <!-- team section -->
+    <section class="team">
+        <h1 class="text-center py-5">Meet Our Team</h1>
+    
+        <div class="profiles text-center">
+          <div class="profile">
+            <img src="{% static 'images/developers/wajih.jpg' %}" class="profile-img">
+    
+            <h3 class="user-name">Muhammad Wajih ur Rehman</h3>
+            <h5>Software Engineer</h5>
+            <p>Always have strong passion for what you do and most importantly believe in yourself and things will go according to plan</p>
+            <div class="py-2">
+            <a href="https://www.facebook.com/wajih.rehman.52"><i style="font-size:36px;color: #e74c3c;" class="fa">&#xf230;</i></a>
+            <a class="px-4" href="https://github.com/WajihRehman1/"><i class="fa fa-github" style="font-size:36px;color: #e74c3c;"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mwajihrehman@gmail.com"><abbr title="mwajihrehman@gmail.com"><i class="fa fa-google" style="font-size:36px;color: #e74c3c;cursor: pointer;"></i></abbr></a>
+            </div>  
+          </div>
+          <div class="profile">
+            <img src="{% static 'images/developers/arfa1.jpg'%}" class="profile-img">
+    
+            <h3 class="user-name">Syed Muhammad Arfa</h3>
+            <h5 class="py-2">Softawre Engineer</h5>
+            <!-- <p>I have a crazy passion for developing web applications and solving complex problems</p> -->
+            <p>Life is like a race, keep pushing yourself up and work harder to get all those rewards that ALLAH has planned for you</p>
+            <div class="py-4">
+            <a href="https://www.facebook.com/arfashahji"><i style="font-size:36px;color: #e74c3c;" class="fa">&#xf230;</i></a>
+            <a class="px-4" href="https://github.com/syedarfa459"><i class="fa fa-github" style="font-size:36px;color: #e74c3c;"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=arfashahji@gmail.com"><abbr title="arfashahji@gmail.com"><i class="fa fa-google" style="font-size:36px;color: #e74c3c;cursor: pointer;"></i></abbr></a>
+          </div>
+          </div>
+           <div class="profile">
+            <img src="{% static 'images/developers/ayesha.jpg'%}" class="profile-img">
+    
+            <h3 class="user-name">Ayesha Hameed</h3>
+            <h5 class="py-2">Software Engineer</h5>
+            <p>A versatile and professional software engineer with a commitment to and experience of developing innovative and creative software solutions</p>
+           <div class="py-4">
+            <a href="#"><i style="font-size:36px;color: #e74c3c;" class="fa">&#xf230;</i></a>
+            <a class="px-4" href="#"><i class="fa fa-github" style="font-size:36px;color: #e74c3c;"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ayeshahameed1999@gmail.com"><abbr title="ayeshahameed1999@gmail.com"><i class="fa fa-google" style="font-size:36px;color: #e74c3c;cursor: pointer;"></i></abbr></a>
+          </div>
+          </div> 
+        </div>
+    </section>
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+  {% endblock body %}

@@ -1,0 +1,338 @@
+{% extends 'locapp/base.html' %} {% load crispy_forms_tags %} {% block body %} {%load static%}
+
+<head>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $( function() {
+          
+          $( "#tags" ).autocomplete({
+            source: "{% url 'locapp:search' %}"
+          });
+        } );
+        </script>
+
+  <style>
+    * {
+  box-sizing: border-box;
+}
+
+.search_bar .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.myForm{
+    background:url("{% static 'images/tws.jpg' %}");
+    background-size:100%;
+    height:430px;
+    width:800px;
+    border-radius: 5px;
+}
+#cityBtn{
+    height:50px;
+    width:100px;
+    margin-right:10px;
+}
+
+.mybutton {
+  border-bottom: 2px solid #bcc550;
+  color: #f66342;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    #catbtn{
+    padding:5px 5px 5px 5px;
+    color:red;
+}
+
+.search-btn{
+    
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    border: 1px solid #fff;
+    padding: 6px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor:pointer;
+}
+.search-btn:hover{
+    background:#e74c3c;
+    cursor:pointer;
+    border: 1px solid #e74c3c;
+}
+.si:hover{
+  background: #f9f3f2;
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function handleSelect(elm)
+  {
+     window.location = elm.value;
+  }
+</script>
+
+</head>
+
+  
+  <!-- video bg -->
+
+  <header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="{% static 'videos/forest.mov'%}" type="video/mp4">
+    </video>
+    <div class="container h-100 mt-3">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 class="display-3" style="color:#f7402c; font-size: 8vw;font-weight:500; font-family: 'Satisfy', cursive;">Sayahat</h1>
+          <div class="mt-5 container d-flex justify-content-center">
+    <div class="col-md-6 mt-3">
+      <form method="POST" >
+        {% csrf_token %}
+      <div class="search_bar">
+        <span class="fa fa-search py-1"></span>
+        <input type="text" placeholder="Search a place" class="btn btn-outline-light btn-block" style="width: 600px;text-align: left;text-indent: 18px;height: 45px;" name="destination" id="tags">
+        <input type="submit" class="search-btn" type="button" style="height: 40px;border-radius: 5px;margin-top: 18px;" value="Search">
+      </div>
+    </form>
+      
+      <!-- <select class="col-lg-12 btn btn-outline-light btn-lg btn-block selectpicker" data-live-search="true" onchange="javascript:handleSelect(this)">
+          <option >Select or Search a City</option>
+        {%for b in allObj%}
+            <option value="{%url 'locapp:show_dest' pk=b.id%}">{{b.destination_name}}</option>
+        {%endfor%}
+    </select> -->
+  </div>
+</div>
+          <div class="mt-4" style="margin-left: 15px;">
+          <span class=" lead mb-0" style="letter-spacing: 2px; font-size:3vw;">Get Ready for Your Next Adventure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mt-2 mb-3">
+    <div class="jumbotron"  style="text-align: center;">
+      {%for b in obj%}
+      <a href="{%url 'locapp:show_dest' pk=b.id %}" id="catbtn" class="rounded">
+          <button type="button" class="btn  mybutton"><h4>{{b.destination_name}}</h4></button>
+      </a>
+      {%endfor%}
+
+    </div>
+</div>
+
+
+
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <p style="font-size: medium;">
+            The aim of Sayahat is to promote tourism in Pakistan and boost the economy of Pakistan by helping tourists all over</p>
+            <p class="py-1" style="font-size: medium;"> the globe to explore the magnificent beauty of Pakistan. 
+              In Pakistan, there are several activities which can be a great </p> 
+              <p class="py-1" style="font-size: medium;">source of rapture for globetrotters like
+            paragliding, rock climbing, mountain climbing, skiing, trekking/hiking, </p>
+            <p class="py-1" style="font-size: medium;">mountain biking, hot air ballooning, rafting and much more.
+            Our portal has 2 major applications</p> 
+            <p class="py-1" style="font-size: medium;">1. Sayahat Solo</p>
+            <p class="py-1" style="font-size: medium;">2. Sayahat Adventure Clubs</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Featured Section -->
+
+  <section id="featured">
+    <div class="container" data-aos="fade-right">
+      <div class="title">
+        <h4 class="title-primary">Perfect Holiday</h4>
+        <h1 class="h1 h1-responsive title-secondary">Featured Places</h1>
+      </div>
+      <div class="row px-0 py-5 d-flex justify-content-center">
+      {%for o in obj1%}
+        <div class="col-lg-3 px-1 my-3">
+          <div class="card-design">
+            <div class="image">
+              <img src="{{o.destinationImage.url}}" alt="">
+            </div>
+            <div class="card-text shadow">
+              <div class="item">
+                <span><i class="fas fa-star"></i>({{o.city_rating}})</span>
+                <h4 class="h4">{{o.destination_name}}</h4>
+              </div>
+              <div class="item px-1">
+                <a href="{%url 'locapp:show_dest' pk=o.id %}"><button style="width: 100px;" class="btn">View Info</button></a>
+                <div class="py-2">
+                <a href="{%url 'locapp:addRating'%}"><button style="width: 100px;" class="btn">Rate</button></a>
+              </div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+
+
+    </div>
+
+  </section>
+<section id="featured">
+    <div class="container">
+      <div class="title">
+        <h4 class="title-primary">Offered Blogs</h4>
+        <h1 class="h1 h1-responsive title-secondary">More to Explore</h1>
+      </div>
+    </div>
+ <!-- blog cards -->
+  <section id="blog_cards">
+    <!-- <div class="title text-center">
+      <h4 class="title-primary">Blogs</h4>
+      <h1 class="h1 h1-responsive title-secondary">More to Explore</h1>
+    </div> -->
+    <div class="changes">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-4 py-3 ">
+                <a href="{%url 'locapp:Blog' key=1%}">
+                  <div class="card shadow">
+                      <div class="inner">
+                          <img src="{%static 'images/blog1.jpg' %}"  class="card-img-top" href="#" alt="...">
+                      </div>
+
+                      <div class="card-body text-center" style="height: 150px; overflow: hidden;">
+                        <h6 class="card-title">From Sayahat</h6>
+                      <p class="card-text">
+                        <h5><a style="text-decoration: none; color:inherit; font-size:18px;" href="{%url 'locapp:Blog' key=1%}">Covid-19 and Travel: Top Questions Answered for U.S Travelers</a></h5>
+                      </p>
+                        <!-- <button type="button" class="btn btn-outline-dark" style="border-radius: 20px;">Read More...</button> -->
+
+                      </div>
+                  </div>
+                  </a>
+              </div>
+              <div class="col-sm-4 py-3 ">
+              <a href="{%url 'locapp:Blog' key=2%}">
+                <div class="card shadow">
+                    <div class="inner">
+                        <img src="{%static 'images/blog2.jpg' %}"  class="card-img-top" href="#" alt="...">
+                    </div>
+
+                    <div class="card-body text-center" style="height: 150px; overflow: hidden;" >
+                      <h6 class="card-title">From Sayahat</h6>
+                      <p class="card-text">
+                        <h5><a style="text-decoration: none; color:inherit; font-size:18px;" href="{%url 'locapp:Blog' key=2%}">6 Impactul decisions you can make for a sutainable travel</a></h5>
+                      </p>
+
+
+                    </div>
+                </div>
+                </a>
+
+            </div>
+            <div class="col-sm-4 py-3 ">
+              <a href="{%url 'locapp:Blog' key=3%}">
+
+              <div class="card shadow">
+                  <div class="inner">
+                     <img src="{%static 'images/blog3.jpg' %}"  class="card-img-top" href="#" alt="...">
+                  </div>
+
+                  <div class="card-body text-center" style="height: 150px; overflow: hidden;">
+                    <h6 class="card-title">From Sayahat</h6>
+                    <p class="card-text">
+                      <h5><a style="text-decoration: none; color:inherit; font-size:18px;" href="{%url 'locapp:Blog' key=3%}">Covid-19 and Travel: Top Questions Answered for U.S Travelers</a></h5>
+                    </p>
+
+
+                  </div>
+              </div>
+              </a>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+
+  </section>
+
+</section>
+
+
+  <section id="featured">
+    <div class="container mt-1" data-aos="fade-left">
+      <div class="title">
+        <h4 class="title-primary">Beautiful Pakistan</h4>
+        <h1 class="h1 h1-responsive title-secondary">Popular tourist spots</h1>
+      </div>
+      <div class="row px-0 py-4 d-flex justify-content-center">
+      {%for o in popular%}
+        <div class="col-lg-3 px-1 my-3">
+          <div class="card-design">
+            <div class="image">
+              <img src="{{o.meta_destination_Image.url}}" alt="">
+            </div>
+            <div class="card-text shadow">
+              <div class="item">
+                <span><i class="fas fa-star"></i>({{o.place_rating}})</span>
+                <h4 class="h4">{{o.meta_destination_name}}</h4>
+              </div>
+              <div class="item px-2">
+                <a href="{%url 'locapp:loc_meta_detail' pk=o.id %}"><button style="width: 110px;" class="btn">View Info</button></a>
+              <div class="py-2">
+                <a  href="{%url 'locapp:addRating' %}"><button style="width: 110px;" class="btn">Rate</button></a>
+              </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+  </section>
+
+<!--<div class="container" style="margin-top:40px;">-->
+<!--  <hr style="color:#f66342;height:2px;border-width:0;">-->
+<!--  <h1 class="mb-5 mt-5 text-danger text-center"><span style="color:#f66342;">Explore with SAYAHAT</span></h1>-->
+<!--  <hr style="color:#f66342;height:2px;border-width:0; margin-bottom: 30px;">-->
+<!--</div>-->
+<!--<div style="margin-top:45px;" class="d-flex justify-content-center mb-5">-->
+<!--<form method="POST" class="col-lg-8 myForm jumbotron" >-->
+<!--      {% csrf_token %}-->
+<!--      <div class="mt-3 col-lg-6" style="padding-top:210px;padding-left: 30px;">-->
+<!--        <div class="dropdown">-->
+<!--            <a class="col-lg-12 btn btn-outline-light btn-lg btn-block dropdown-toggle" href="#"role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--              Cities-->
+<!--            </a>-->
+<!--            <ul class="col-lg-12 dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--              {%for b in allObj%}-->
+<!--              <li><a class="dropdown-item" href="{%url 'locapp:show_dest' pk=b.id%}">{{b.destination_name}}</a></li>-->
+<!--              {%endfor%}-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--    </div>-->
+<!--    </form>-->
+<!--</div>-->
+{% endblock body %}

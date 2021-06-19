@@ -1,0 +1,26 @@
+{% extends 'locapp/base.html' %}
+{%load crispy_forms_tags%}
+{%block body%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="myJumbotron container-fluid d-flex justify-content-center bg-white shadow">
+    <form
+        method="POST"
+        class="col-lg-8 "
+        enctype="multipart/form-data"
+    >
+        <h1 class="d-flex justify-content-center" style="color:#f66342;">Add a destination</h1>
+
+        {%csrf_token%}
+        {{form|crispy}}
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="btn btn-outline-dark mt-5" value="Submit">
+        </div>
+    </form>
+</div>
+{% endblock body%}
