@@ -141,6 +141,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+
+
 # Added By Syed M. Arfa for password reset fn
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -157,3 +159,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/AdventureClub')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/destinationImages')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/metadestinationImages')
