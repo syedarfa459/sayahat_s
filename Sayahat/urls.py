@@ -13,7 +13,9 @@ urlpatterns = [
     path('SayahatAdventure/', include('AdventureClub.urls')),
     path('accounts/', include('allauth.urls')),
     #for configuring media files on heroku
-    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+#     re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve,
+        kwargs=dict(document_root=settings.MEDIA_ROOT)),
     
     # urls for password reset at adventure club side
     # 1. for entering email to reset password
