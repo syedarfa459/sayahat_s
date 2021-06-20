@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +12,9 @@ urlpatterns = [
     path('/', include('AdventureClub.urls')),
     path('SayahatAdventure/', include('AdventureClub.urls')),
     path('accounts/', include('allauth.urls')),
+    #for configuring media files on heroku
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    
     # urls for password reset at adventure club side
     # 1. for entering email to reset password
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='AdventureClubs/password_reset.html',
