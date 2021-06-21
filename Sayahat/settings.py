@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     #auth providers
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+    # Media Cloudinary
+    'cloudinary',
+    'cloudinary_storage',
     
 ]
 
