@@ -42,12 +42,18 @@ def location_module(destination_):
 
     client = IpregistryClient("escffgkb0orli5")
     ipInfo = client.lookup()
+    
+    hostname= socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    response = requests.get("http://ip-api.com/json/",local_ip).json()
+    mylatitude= response['lat']
+    mylongitude= response['lon']
     # print(ipInfo)
     # print(ipInfo.ip)
     # print(ipInfo.location.get('latitude'))
     # print(ipInfo.location.get('longitude'))
-    mylatitude = ipInfo.location.get('latitude')
-    mylongitude = ipInfo.location.get('longitude')
+#     mylatitude = ipInfo.location.get('latitude')
+#     mylongitude = ipInfo.location.get('longitude')
     mycity = ipInfo.location.get('city')
 
     tourist_lat, tourist_lon = mylatitude, mylongitude
