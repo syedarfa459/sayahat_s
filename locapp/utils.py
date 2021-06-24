@@ -33,7 +33,14 @@ def get_zoom(distance):
         return 4
     else:
         return 2
-
+    
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def location_module(destination_):
 
@@ -43,8 +50,10 @@ def location_module(destination_):
     client = IpregistryClient("escffgkb0orli5")
     ipInfo = client.lookup()
     
-    hostname= socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
+#     hostname= socket.gethostname()
+#     local_ip = socket.gethostbyname(hostname)
+    local_ip= get_client_ip(request)
+    
     response = requests.get("http://ip-api.com/json/",local_ip).json()
     mylatitude= response['lat']
     mylongitude= response['lon']
