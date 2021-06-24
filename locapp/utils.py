@@ -33,16 +33,9 @@ def get_zoom(distance):
         return 4
     else:
         return 2
-    
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[-1].strip()
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
 
-def location_module(destination_):
+
+def location_module(destination_,u_ip):
 
     city=destination_
     geolocator = Nominatim(user_agent='syedarfa')
@@ -52,7 +45,7 @@ def location_module(destination_):
     
 #     hostname= socket.gethostname()
 #     local_ip = socket.gethostbyname(hostname)
-    local_ip= get_client_ip(request)
+    local_ip= u_ip
     
     response = requests.get("http://ip-api.com/json/",local_ip).json()
     mylatitude= response['lat']
