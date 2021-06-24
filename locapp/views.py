@@ -13,6 +13,7 @@ def soclogin(request):
     return render(request, 'locapp/login.html')
 
 def DestinationView(request):
+    u_ip = request.META["REMOTE_ADDR"]
     map=''
     uname = request.user.username
     if request.method == "POST":
@@ -24,7 +25,7 @@ def DestinationView(request):
             if not loc_details.exists():
                 messages.info(request, "The Location that you are Searching for has not yet been included :(")
                 return redirect(reverse('locapp:dest'))
-            dest_details=location_module(loc_details[0])
+            dest_details=location_module(loc_details[0],u_ip)
             print(dest_details)
 
             distance=dest_details.pop(0)
@@ -64,8 +65,9 @@ def DestinationView(request):
 
 
 def dest_view2(request,pk):
+    u_ip = request.META["REMOTE_ADDR"]
     obj=DestinationCityDetails.objects.filter(id=pk)
-    details=location_module(obj[0])
+    details=location_module(obj[0],u_ip)
     distance=details[0]
     mapobj=details[1]
     dest_meta_details=details[2]
