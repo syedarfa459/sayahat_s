@@ -52,19 +52,19 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     # Media Cloudinary
-    'cloudinary',
-    'cloudinary_storage',
+#     'cloudinary',
+#     'cloudinary_storage',
     
 ]
 
 # Cloudinary stuff
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': <sayahat>,
-    'API_KEY': <123433471992786>,
-    'API_SECRET': <jXdJvxo2E7Oj5kXDxHRTFarJNEk>,
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': <sayahat>,
+#     'API_KEY': <123433471992786>,
+#     'API_SECRET': <jXdJvxo2E7Oj5kXDxHRTFarJNEk>,
+# }
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 MIDDLEWARE = [
